@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <meta name="description" content="{{ .Description }}">
+    <meta name="keywords" content="земельный юрист москва, оформление земельного участка, земельные споры, приватизация земли">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ .Title }}">
+    <meta property="og:description" content="{{ .Description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo-small.png">
+    <link rel="apple-touch-icon" type="image/png" href="/logo-small.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&subset=latin,cyrillic" rel="stylesheet">
+    
+    <!-- Styles -->
+    {{ $css := resources.Get "css/custom.css" }}
+    <link rel="stylesheet" href="{{ $css.Permalink }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService", 
+      "name": "Хромченков и Партнеры",
+      "description": "Юридические услуги по земельному праву",
+      "url": "https://hnp.moscow",
+      "telephone": "+7-926-279-63-50",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Новопесчаная улица, д. 9",
+        "addressLocality": "Москва",
+        "addressCountry": "RU"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating", 
+        "ratingValue": "4.9",
+        "reviewCount": "127"
+      }
+    }
+    </script>
+    
+    {{ block "head" . }}{{ end }}
+</head>
+<body class="t-body" style="margin:0;">
+    <div class="main-container">
+    <!-- Header -->
+    {{ partial "header.html" . }}
+    
+    <!-- Main Content -->
+    <main id="t-main-content">
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    <!-- Footer -->
+    {{ partial "footer.html" . }}
+    </div>
+    
+    <!-- Scripts -->
+    {{ block "scripts" . }}{{ end }}
+    {{ $js := resources.Get "js/header.js" }}
+    {{ if $js }}
+    <script src="{{ $js.RelPermalink }}"></script>
+    {{ else }}
+    <script>
+      console.error('Header.js not found!');
+    </script>
+    {{ end }}
+</body>
+</html>

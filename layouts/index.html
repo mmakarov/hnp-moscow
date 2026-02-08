@@ -1,0 +1,298 @@
+{{ define "main" }}
+{{ with .Params.hero }}
+<section 
+  class="relative bg-white text-gray-800 overflow-hidden"
+  style="min-height: calc(100vh - 89px);"
+>
+  <!-- Background Image Container -->
+  <div 
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/winter.jpg');"
+  ></div>
+
+  <!-- Foreground Content -->
+  <div class="relative container mx-auto px-6 flex flex-col justify-center h-full" style="min-height: calc(100vh - 89px);">
+    <div class="max-w-2xl pt-20 pb-10">
+      <h2 class="text-3xl md:text-5xl font-bold text-[#D84141] leading-tight mb-4">
+        {{ .title }}
+      </h2>
+      <p class="text-xs md:text-base text-gray-600 mb-8 max-w-lg">
+        {{ .subtitle }}
+      </p>
+      <a 
+        href="tel:{{ .phone }}"
+        class="border-2 border-[#D84141] text-[#D84141] font-bold py-3 px-8 text-lg hover:bg-[#D84141] hover:text-white transition-all duration-300 inline-block"
+      >
+        ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
+      </a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.services }}
+<section id="services" class="py-20 bg-gray-50/70">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .individuals_title }}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .individuals }}
+      <div class="bg-white border border-gray-200 p-8 rounded-lg flex flex-col group hover:shadow-lg transition-shadow duration-300">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ .title }}</h3>
+        <ul class="list-disc list-inside text-gray-600 flex-grow mb-6">
+          {{ range .items }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+        <a href="tel:+79262796350" class="w-full text-center border-2 border-[#D84141] text-[#D84141] font-bold py-2 px-6 text-sm hover:bg-[#D84141] hover:text-white transition-all duration-300 self-start h-12 flex items-center justify-center">
+          {{ .cta }}
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.main_services }}
+<section id="main-services" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+      <p class="text-xl text-gray-600 mb-4">{{ .subtitle }}</p>
+      <p class="text-lg text-gray-500 max-w-3xl mx-auto">{{ .description }}</p>
+    </div>
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+      {{ range .pillars }}
+      <div class="bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 p-8 rounded-lg hover:shadow-lg transition-all duration-300 group">
+        <div class="mb-6">
+          <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-[#D84141] transition-colors">
+            <a href="{{ .url }}" class="hover:underline">{{ .title }}</a>
+          </h3>
+          <p class="text-gray-600 mb-6">{{ .description }}</p>
+        </div>
+        <ul class="space-y-2 mb-8">
+          {{ range .features }}
+          <li class="flex items-center text-gray-700">
+            <svg class="w-5 h-5 text-[#D84141] mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            {{ . }}
+          </li>
+          {{ end }}
+        </ul>
+        <a href="{{ .url }}" class="inline-flex items-center justify-center w-full border-2 border-[#D84141] text-[#D84141] font-bold py-3 px-6 text-lg hover:bg-[#D84141] hover:text-white transition-all duration-300 rounded-lg">
+          {{ .cta }}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.process }}
+<section id="process" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+    </div>
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      {{ range .steps }}
+      <div class="flex items-start">
+        <div class="flex-shrink-0">
+          <div class="flex items-center justify-center h-16 w-16 rounded-full bg-gray-100 text-3xl">
+            {{ .icon }}
+          </div>
+        </div>
+        <div class="ml-6">
+          <h3 class="text-2xl font-semibold text-gray-900">{{ .title }}</h3>
+          <p class="mt-2 text-gray-500 italic">{{ .description }}</p>
+          <ul class="mt-4 text-gray-600 space-y-2">
+            {{ range .details }}
+            <li>- {{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.advantages }}
+<section id="advantages" class="py-20 bg-gray-50/70">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {{ range .items }}
+      <div class="bg-white p-8 rounded-lg border border-gray-200">
+        <h3 class="text-xl font-semibold text-[#D84141] mb-3">{{ .title }}</h3>
+        <p class="text-gray-600">{{ .description }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.team }}
+<section id="team" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+    </div>
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gray-50 rounded-lg p-8 mb-12 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/3 text-center md:text-left mb-6 md:mb-0">
+          <img src="{{ .lead.photo | default "/images/placeholder.jpg" }}" alt="{{ .lead.name }}" class="w-40 h-40 rounded-full mx-auto md:mx-0 object-cover">
+        </div>
+        <div class="md:w-2/3 md:pl-8">
+          <h3 class="text-2xl font-bold text-gray-900">{{ .lead.name }}</h3>
+          <p class="text-[#D84141] font-semibold">{{ .lead.position }}</p>
+          <p class="text-gray-600 mt-4"><strong>Стаж:</strong> {{ .lead.experience }}</p>
+          <p class="text-gray-600"><strong>Образование:</strong> {{ .lead.education }}</p>
+          <p class="text-gray-600"><strong>Специализация:</strong> {{ .lead.specialization }}</p>
+          <p class="text-gray-600"><strong>Достижения:</strong> {{ .lead.achievements }}</p>
+          <p class="text-gray-600 font-bold mt-2"><strong>Телефон:</strong> {{ .lead.phone }}</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        {{ range .lawyers }}
+        <div class="bg-white p-6 rounded-lg border border-gray-200">
+          <h4 class="text-lg font-bold">{{ .name }}</h4>
+          <p class="text-gray-500">{{ .specialization }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.cases }}
+<section id="cases" class="py-20 bg-gray-50/70">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {{ range .items }}
+      <div class="bg-white p-8 rounded-lg border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ .title }}</h3>
+        <p class="text-gray-600 mb-2"><strong>Проблема:</strong> {{ .problem }}</p>
+        <p class="text-gray-600 mb-2"><strong>Действия:</strong> {{ .actions }}</p>
+        <p class="text-gray-600 mb-2"><strong>Результат:</strong> {{ .result }}</p>
+        <p class="text-gray-600 font-bold"><strong>Срок:</strong> {{ .duration }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.testimonials }}
+<section id="testimonials" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {{ range .items }}
+      <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+        <p class="text-gray-600 italic mb-4">"{{ .text }}"</p>
+        <p class="text-gray-800 font-bold text-right">- {{ .author }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.pricing }}
+<section id="pricing" class="py-20 bg-gray-50/70">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+      <p class="text-lg text-gray-600">{{ .subtitle }}</p>
+    </div>
+    <div class="max-w-4xl mx-auto overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr>
+            <th class="py-4 px-6 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b border-gray-200">Услуга</th>
+            <th class="py-4 px-6 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b border-gray-200">Стоимость</th>
+            <th class="py-4 px-6 bg-gray-100 font-bold uppercase text-sm text-gray-600 border-b border-gray-200">Срок</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ range .table }}
+          <tr class="hover:bg-gray-100">
+            <td class="py-4 px-6 border-b border-gray-200">{{ .service }}</td>
+            <td class="py-4 px-6 border-b border-gray-200 font-bold">{{ .price }}</td>
+            <td class="py-4 px-6 border-b border-gray-200">{{ .term }}</td>
+          </tr>
+          {{ end }}
+        </tbody>
+      </table>
+    </div>
+    <div class="max-w-2xl mx-auto mt-12">
+        <h3 class="text-2xl font-bold text-center mb-6">{{ .guarantees.title }}</h3>
+        <ul class="space-y-3">
+            {{ range .guarantees.items }}
+            <li class="flex items-center">
+                <svg class="w-6 h-6 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-gray-700">{{ . }}</span>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.faq }}
+<section id="faq" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
+    </div>
+    <div class="max-w-3xl mx-auto">
+      <div class="space-y-6">
+        {{ range .items }}
+        <div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ .question }}</h3>
+          <p class="text-gray-600">{{ .answer }}</p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.contacts }}
+<section id="contacts" class="py-20 bg-gray-800 text-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">{{ .title }}</h2>
+    </div>
+    <div class="max-w-2xl mx-auto text-center">
+      <h3 class="text-2xl font-bold mb-4">Главный офис:</h3>
+      <p class="mb-2">📍 {{ .address }}</p>
+      <p class="mb-2">🕒 {{ .schedule }}</p>
+      <p class="mb-2">☎️ <a href="tel:{{ .phone }}" class="hover:underline">{{ .phone }}</a></p>
+      <p class="mb-4">📧 <a href="mailto:{{ .email }}" class="hover:underline">{{ .email }}</a></p>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

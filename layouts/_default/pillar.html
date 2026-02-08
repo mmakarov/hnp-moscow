@@ -1,0 +1,102 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section
+  class="relative bg-white text-gray-800 overflow-hidden"
+  style="min-height: calc(100vh - 120px);"
+>
+  <!-- Background Image Container -->
+  <div
+    class="absolute inset-0 bg-cover bg-center opacity-50"
+    style="background-image: url('/hero-bg.jpeg');"
+  ></div>
+
+  <!-- Foreground Content -->
+  <div class="relative container mx-auto px-6 flex flex-col justify-center h-full" style="min-height: calc(100vh - 120px);">
+    <div class="max-w-2xl pt-20 pb-10">
+      <h1 class="text-3xl md:text-5xl font-bold text-[#D84141] leading-tight mb-4">
+        {{ .Title }}
+      </h1>
+      <p class="text-xs md:text-base text-gray-600 mb-8 max-w-lg">
+        {{ .Description }}
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a
+          href="tel:+79262796350"
+          class="border-2 border-[#D84141] text-[#D84141] font-bold py-3 px-8 text-lg hover:bg-[#D84141] hover:text-white transition-all duration-300 inline-block rounded-lg shadow-lg hover:shadow-xl"
+        >
+          ☎️ Бесплатная консультация
+        </a>
+        <a
+          href="#services"
+          class="border-2 border-[#D84141] text-[#D84141] font-bold py-3 px-8 text-lg hover:bg-[#D84141] hover:text-white transition-all duration-300 inline-block rounded-lg"
+        >
+          📋 Наши услуги
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content Section -->
+<section class="py-24 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto">
+      <article class="prose prose-2xl max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:mb-8 prose-lead:mb-12 prose-li:mb-4 prose-ul:mb-8 prose-ol:mb-8 prose-blockquote:rounded-lg prose-blockquote:border-l-4 prose-blockquote:border-[#D84141] prose-blockquote:bg-gray-50/50 prose-blockquote:p-6 prose-table:w-full prose-table:mb-12 prose-th:bg-gray-100 prose-th:font-bold prose-td:border prose-td:border-gray-200 prose-td:p-4 prose-thead:border-b prose-thead:border-gray-200">
+        {{ .Content }}
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Related Services Section -->
+<section id="services" class="py-20 bg-gray-50/70">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-gray-800 mb-4">Связанные услуги</h2>
+      <p class="text-xl text-gray-600">Полный спектр юридических услуг по данному направлению</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {{ range .Pages }}
+      <div class="bg-white border border-gray-200 p-8 rounded-lg flex flex-col group hover:shadow-lg transition-all duration-300 hover:border-[#D84141]">
+        <h3 class="text-xl font-semibold text-gray-900 mb-4 group-hover:text-[#D84141] transition-colors">{{ .Title }}</h3>
+        <p class="text-gray-600 flex-grow mb-6">{{ .Description | default "Профессиональная юридическая помощь" }}</p>
+        <a href="{{ .RelPermalink }}" class="w-full text-center border-2 border-[#D84141] text-[#D84141] font-bold py-3 px-6 text-sm hover:bg-[#D84141] hover:text-white transition-all duration-300 self-start flex items-center justify-center rounded-lg">
+          Подробнее
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA Section -->
+<section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+  <div class="container mx-auto px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-6">Готовы начать оформление?</h2>
+      <p class="text-xl text-gray-300 mb-8">Получите бесплатную консультацию и оценку перспектив вашего дела</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="tel:+79262796350"
+          class="bg-[#D84141] text-white font-bold py-4 px-8 text-lg hover:bg-red-700 transition-all duration-300 inline-block rounded-lg shadow-lg hover:shadow-xl"
+        >
+          ☎️ +7 (926) 279-63-50
+        </a>
+        <a
+          href="mailto:info@hnp.moscow"
+          class="border-2 border-white text-white font-bold py-4 px-8 text-lg hover:bg-white hover:text-gray-800 transition-all duration-300 inline-block rounded-lg"
+        >
+          📧 Написать нам
+        </a>
+      </div>
+      <div class="mt-8 text-gray-400">
+        <p>📍 Москва, Новопесчаная улица, д. 9, цокольный этаж</p>
+        <p>🕒 Пн-Пт: 9:00-20:00, Сб: 10:00-16:00</p>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

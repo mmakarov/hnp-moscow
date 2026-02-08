@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --primary-red: #E53935;
+  --dark-gray: #333333;
+  --light-gray: #f0f0f0;
+  --white: #FFFFFF;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--white);
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background-image: url('/images/snowy-cityscape.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.header, .hero-content, .footer {
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-left .menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.header-center {
+  text-align: center;
+}
+
+.logo-ice {
+  color: var(--primary-red);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.logo-tour-info {
+  color: var(--dark-gray);
+  font-size: 12px;
+  display: block;
+}
+
+.header-right a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--dark-gray);
+}
+
+.left-nav {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.left-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left-nav li {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.left-nav li.active {
+  background-color: var(--primary-red);
+}
+
+.right-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: right top;
+  z-index: 3;
+}
+
+.right-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.right-nav li {
+  margin-right: 20px;
+  color: #aaa;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.hero-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 15%;
+  position: relative;
+}
+
+.discover-overlay {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+  font-size: 15vw;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.05);
+  z-index: -1;
+}
+
+.hero-content h1 {
+  font-size: 5vw;
+  color: var(--primary-red);
+  margin: 0;
+  font-weight: 700;
+}
+
+.hero-content p {
+  max-width: 400px;
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background: none;
+  border: 2px solid var(--primary-red);
+  color: var(--primary-red);
+  padding: 10px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 20px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+  font-size: 12px;
+}

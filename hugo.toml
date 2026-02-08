@@ -1,0 +1,27 @@
+baseURL = 'https://hnp.moscow/'
+languageCode = 'ru-ru'
+title = 'Хромченков и партнеры - Земельные юристы Москвы'
+defaultContentLanguage = 'ru'
+
+[params]
+  description = "Юридические услуги по земельному праву в Москве. 20 лет опыта, 2000+ дел, гарантия результата. Бесплатная консультация ☎ +7 (926) 279-63-50"
+  author = "Хромченков и партнеры"
+  phone = "+7 (926) 279-63-50"
+  email = "info@hnp.moscow"
+
+[build]
+  writeStats = true
+  useResourceCacheWhen = 'fallback'
+
+[services]
+  [services.googleAnalytics]
+    id = ''
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

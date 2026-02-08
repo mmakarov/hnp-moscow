@@ -1,0 +1,44 @@
+{
+  "company": {
+    "name": "Хромченков и партнеры",
+    "fullName": "Земельные юристы Хромченков и Партнеры",
+    "domain": "hnp.moscow"
+  },
+  "contacts": {
+    "phone": "+7 (926) 279-63-50",
+    "email": "info@hnp.moscow",
+    "address": "Москва, Новопесчаная улица, д. 9, цокольный этаж",
+    "schedule": "Пн-Пт: 9:00-19:00, Сб: 10:00-16:00"
+  },
+  "social": {
+    "whatsapp": "https://wa.me/79262796350",
+    "telegram": "https://t.me/hnp_moscow",
+    "skype": "skype:hnp.moscow?call"
+  },
+  "hero": {
+    "phone": "+7 (926) 279-63-50",
+    "stats": [
+      {
+        "number": "2000+",
+        "label": "решенных дел"
+      },
+      {
+        "number": "95%",
+        "label": "выигранных споров в суде"
+      },
+      {
+        "number": "20",
+        "label": "лет опыта"
+      },
+      {
+        "number": "24/7",
+        "label": "поддержка клиентов"
+      }
+    ]
+  },
+  "team": {
+    "lead": {
+      "phone": "+7 (926) 279-63-50"
+    }
+  }
+}
