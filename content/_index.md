@@ -137,12 +137,14 @@ team:
     phone: "+7 (926) 279-63-50"
     photo: "/images/team/khromchenkov.jpg"
   lawyers:
-    - name: "Петрова Анна Сергеевна"
+    - name: "Мария"
       specialization: "оформление прав собственности"
-    - name: "Сидоров Михаил Александрович"
+    - name: "Артём"
       specialization: "земельные споры в судах"
-    - name: "Козлова Елена Дмитриевна"
+    - name: "Павел"
       specialization: "сделки с земельными участками"
+    - name: "Василий"
+      specialization: "кадастровые вопросы и межевание"
 
 cases:
   title: "Успешные кейсы"
