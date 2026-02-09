@@ -37,30 +37,207 @@
   </div>
 </section>
 
-<!-- Main Content Section -->
-<section class="py-24 bg-white">
+{{ with .Params.features }}
+<!-- Features Section -->
+<section class="py-16 bg-gray-50">
   <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto">
-      <article class="prose prose-2xl max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-p:mb-8 prose-lead:mb-12 prose-li:mb-4 prose-ul:mb-8 prose-ol:mb-8 prose-blockquote:rounded-lg prose-blockquote:border-l-4 prose-blockquote:border-[#D84141] prose-blockquote:bg-gray-50/50 prose-blockquote:p-6 prose-table:w-full prose-table:mb-12 prose-th:bg-gray-100 prose-th:font-bold prose-td:border prose-td:border-gray-200 prose-td:p-4 prose-thead:border-b prose-thead:border-gray-200">
-        {{ .Content }}
-      </article>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {{ range . }}
+      <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+        {{ if .icon }}
+        <div class="text-4xl mb-4">{{ .icon }}</div>
+        {{ end }}
+        <h3 class="text-lg font-bold text-gray-900 mb-2">{{ .title }}</h3>
+        <p class="text-gray-600 text-sm">{{ .description }}</p>
+      </div>
+      {{ end }}
     </div>
   </div>
 </section>
+{{ end }}
 
-<!-- Related Services Section -->
-<section id="services" class="py-20 bg-gray-50/70">
+{{ with .Params.process }}
+<!-- Process Steps Section -->
+<section class="py-16 bg-white">
   <div class="container mx-auto px-6">
     <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4">Связанные услуги</h2>
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ .title | default "Этапы работы" }}</h2>
+      {{ if .subtitle }}
+      <p class="text-xl text-gray-600">{{ .subtitle }}</p>
+      {{ end }}
+    </div>
+    <div class="max-w-4xl mx-auto">
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200 md:left-1/2"></div>
+        {{ range $index, $step := .steps }}
+        <div class="relative flex items-center mb-8 {{ if mod $index 2 | eq 1 }}flex-row-reverse{{ end }}">
+          <!-- Icon -->
+          <div class="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-16 h-16 bg-white border-4 border-[#D84141] rounded-full flex items-center justify-center z-10">
+            {{ if .icon }}
+            <span class="text-2xl">{{ .icon }}</span>
+            {{ else }}
+            <span class="text-xl font-bold text-[#D84141]">{{ add $index 1 }}</span>
+            {{ end }}
+          </div>
+          <!-- Content -->
+          <div class="ml-20 md:ml-0 md:w-1/2 {{ if mod $index 2 | eq 1 }}md:pl-12 md:text-left{{ else }}md:pr-12 md:text-right{{ end }}">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ .title }}</h3>
+            <p class="text-gray-600">{{ .description }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.pricing }}
+<!-- Pricing Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ .title | default "Стоимость услуг" }}</h2>
+      {{ if .subtitle }}
+      <p class="text-xl text-gray-600">{{ .subtitle }}</p>
+      {{ end }}
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {{ range .items }}
+      <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border {{ if .popular }}border-[#D84141] relative{{ else }}border-gray-200{{ end }}">
+        {{ if .popular }}
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#D84141] text-white text-sm font-bold px-4 py-1 rounded-full">
+          Популярный
+        </div>
+        {{ end }}
+        <h3 class="text-xl font-bold text-gray-900 mb-2">{{ .service }}</h3>
+        <div class="text-3xl font-bold text-[#D84141] mb-2">{{ .price }}</div>
+        {{ if .term }}
+        <p class="text-gray-500 text-sm mb-4">{{ .term }}</p>
+        {{ end }}
+        {{ if .features }}
+        <ul class="text-gray-600 text-sm space-y-2 mb-6">
+          {{ range .features }}
+          <li class="flex items-start {{ if not $.popular }}justify-end{{ end }}">
+            <span class="mr-2">✓</span>
+            {{ . }}
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.advantages }}
+<!-- Advantages Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ .title | default "Почему выбирают нас" }}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {{ range .items }}
+      <div class="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors">
+        <div class="flex-shrink-0 w-12 h-12 bg-[#D84141] bg-opacity-10 rounded-full flex items-center justify-center">
+          <span class="text-2xl">✓</span>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 mb-1">{{ .title }}</h3>
+          <p class="text-gray-600">{{ .description }}</p>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.cases }}
+<!-- Cases Section -->
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ .title | default "Успешные кейсы" }}</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {{ range .items }}
+      <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+        <div class="p-6">
+          <h3 class="text-lg font-bold text-gray-900 mb-3">{{ .title }}</h3>
+          <div class="space-y-3 text-sm">
+            <div>
+              <span class="font-semibold text-gray-700">Проблема:</span>
+              <p class="text-gray-600">{{ .problem }}</p>
+            </div>
+            <div>
+              <span class="font-semibold text-gray-700">Результат:</span>
+              <p class="text-gray-600">{{ .result }}</p>
+            </div>
+            {{ if .duration }}
+            <div class="pt-2">
+              <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
+                {{ .duration }}
+              </span>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ with .Params.faq }}
+<!-- FAQ Section -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6 max-w-4xl">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ .title | default "Частые вопросы" }}</h2>
+    </div>
+    <div class="space-y-4">
+      {{ range .items }}
+      <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <details class="group">
+          <summary class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+            <span class="font-semibold text-gray-900">{{ .question }}</span>
+            <span class="transform group-open:rotate-180 transition-transform text-[#D84141]">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="p-4 text-gray-600 bg-white border-t border-gray-200">
+            {{ .answer | markdownify }}
+          </div>
+        </details>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Related Services Section -->
+<section id="services" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Связанные услуги</h2>
       <p class="text-xl text-gray-600">Полный спектр юридических услуг по данному направлению</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {{ range .Pages }}
-      <div class="bg-white border border-gray-200 p-8 rounded-lg flex flex-col group hover:shadow-lg transition-all duration-300 hover:border-[#D84141]">
-        <h3 class="text-xl font-semibold text-gray-900 mb-4 group-hover:text-[#D84141] transition-colors">{{ .Title }}</h3>
-        <p class="text-gray-600 flex-grow mb-6">{{ .Description | default "Профессиональная юридическая помощь" }}</p>
-        <a href="{{ .RelPermalink }}" class="w-full text-center border-2 border-[#D84141] text-[#D84141] font-bold py-3 px-6 text-sm hover:bg-[#D84141] hover:text-white transition-all duration-300 self-start flex items-center justify-center rounded-lg">
+      {{ range where .Site.RegularPages "Section" .Section }}
+      {{ if ne .Permalink $.Permalink }}
+      <div class="bg-white border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:border-[#D84141]">
+        <h3 class="text-xl font-semibold text-gray-900 mb-3">{{ .Title }}</h3>
+        <p class="text-gray-600 mb-4">{{ .Description | default "Профессиональная юридическая помощь" }}</p>
+        <a href="{{ .RelPermalink }}" class="inline-flex items-center text-[#D84141] font-semibold hover:underline">
           Подробнее
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -68,35 +245,9 @@
         </a>
       </div>
       {{ end }}
+      {{ end }}
     </div>
   </div>
 </section>
 
-<!-- Contact CTA Section -->
-<section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
-  <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-6">Готовы начать оформление?</h2>
-      <p class="text-xl text-gray-300 mb-8">Получите бесплатную консультацию и оценку перспектив вашего дела</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="tel:+79262796350"
-          class="bg-[#D84141] text-white font-bold py-4 px-8 text-lg hover:bg-red-700 transition-all duration-300 inline-block rounded-lg shadow-lg hover:shadow-xl"
-        >
-          ☎️ +7 (926) 279-63-50
-        </a>
-        <a
-          href="mailto:info@hnp.moscow"
-          class="border-2 border-white text-white font-bold py-4 px-8 text-lg hover:bg-white hover:text-gray-800 transition-all duration-300 inline-block rounded-lg"
-        >
-          📧 Написать нам
-        </a>
-      </div>
-      <div class="mt-8 text-gray-400">
-        <p>📍 Москва, Новопесчаная улица, д. 9, цокольный этаж</p>
-        <p>🕒 Пн-Пт: 9:00-20:00, Сб: 10:00-16:00</p>
-      </div>
-    </div>
-  </div>
-</section>
 {{ end }}

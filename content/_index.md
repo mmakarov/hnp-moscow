@@ -223,7 +223,5 @@ contacts:
   phone: "+7 (926) 279-63-50"
   email: "info@hnp.moscow"
   social:
-    whatsapp: "https://wa.me/79262796350"
-    telegram: "https://t.me/hnp_moscow"
-    skype: "skype:hnp.moscow?call"
+    telegram: "https://t.me/+79262796350"
 ---
