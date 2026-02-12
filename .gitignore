@@ -8,6 +8,7 @@
 .DS_Store
 .idea/
 .vscode/
+/old_website/
 
 # Node (if ever introduced)
 node_modules/
