@@ -26,6 +26,15 @@
     {{ $css := resources.Get "css/custom.css" }}
     <link rel="stylesheet" href="{{ $css.Permalink }}">
     <script src="https://cdn.tailwindcss.com"></script>
+
+    {{ $ratingValue := "4.5" }}
+    {{ with site.Data.reviews.summary.rating }}
+      {{ $ratingValue = printf "%v" . }}
+    {{ end }}
+    {{ $reviewCount := "16" }}
+    {{ with site.Data.reviews.summary.review_count }}
+      {{ $reviewCount = printf "%v" . }}
+    {{ end }}
     
     <script type="application/ld+json">
     {
@@ -43,8 +52,8 @@
       },
       "aggregateRating": {
         "@type": "AggregateRating", 
-        "ratingValue": "4.9",
-        "reviewCount": "127"
+        "ratingValue": "{{ $ratingValue }}",
+        "reviewCount": "{{ $reviewCount }}"
       }
     }
     </script>

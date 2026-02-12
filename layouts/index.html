@@ -180,6 +180,16 @@
 </section>
 {{ end }}
 
+{{ $reviewsData := site.Data.reviews }}
+{{ $featuredReviews := slice }}
+{{ with $reviewsData.items }}
+  {{ $featuredReviews = where . "featured" true }}
+{{ end }}
+{{ $sourceName := "Яндекс" }}
+{{ with $reviewsData.summary.source_name }}
+  {{ $sourceName = . }}
+{{ end }}
+
 {{ with .Params.testimonials }}
 <section id="testimonials" class="py-20 bg-white">
   <div class="container mx-auto px-6">
@@ -187,12 +197,26 @@
       <h2 class="text-4xl font-bold text-gray-800 mb-4">{{ .title }}</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {{ if gt (len $featuredReviews) 0 }}
+      {{ range first 3 $featuredReviews }}
+      <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+        <p class="text-gray-600 italic mb-4">{{ .text }}</p>
+        <p class="text-gray-800 font-bold text-right">- {{ .author }}, {{ $sourceName }}{{ with .date }}, {{ (time .).Format "02.01.2006" }}{{ end }}</p>
+      </div>
+      {{ end }}
+      {{ else }}
       {{ range .items }}
       <div class="bg-gray-50 p-8 rounded-lg border border-gray-200">
-        <p class="text-gray-600 italic mb-4">"{{ .text }}"</p>
+        <p class="text-gray-600 italic mb-4">{{ .text }}</p>
         <p class="text-gray-800 font-bold text-right">- {{ .author }}</p>
       </div>
       {{ end }}
+      {{ end }}
+    </div>
+    <div class="text-center mt-8">
+      <a href="/reviews/" class="inline-flex items-center text-[#D84141] font-semibold hover:underline">
+        {{ .all_reviews_label | default "смотреть все отзывы" }}
+      </a>
     </div>
   </div>
 </section>
