@@ -1,0 +1,16 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/.hugo_build.lock
+/hugo_stats.json
+
+# OS / editor junk
+.DS_Store
+.idea/
+.vscode/
+
+# Node (if ever introduced)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
