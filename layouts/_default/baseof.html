@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }}</title>
     <meta name="description" content="{{ .Description }}">
-    <meta name="keywords" content="земельный юрист москва, оформление земельного участка, земельные споры, приватизация земли">
+    <meta name="keywords" content="юридические услуги москва, юридическая помощь, земельные споры, жилищные споры, наследственные дела, сопровождение сделок">
     
     <!-- Open Graph -->
     <meta property="og:title" content="{{ .Title }}">
@@ -32,7 +32,7 @@
       "@context": "https://schema.org",
       "@type": "LegalService", 
       "name": "Хромченков и Партнеры",
-      "description": "Юридические услуги по земельному праву",
+      "description": "Юридические услуги для граждан и бизнеса",
       "url": "https://hnp.moscow",
       "telephone": "+7-926-279-63-50",
       "address": {
@@ -55,6 +55,10 @@
     <div class="main-container">
     <!-- Header -->
     {{ partial "header.html" . }}
+
+    {{ if not .IsHome }}
+    {{ partial "breadcrumbs.html" . }}
+    {{ end }}
     
     <!-- Main Content -->
     <main id="t-main-content">

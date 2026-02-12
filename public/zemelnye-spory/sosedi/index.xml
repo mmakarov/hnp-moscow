@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Споры о границах земельного участка с соседями – Юридическая помощь on Хромченков и партнеры - Земельные юристы Москвы</title>
-    <link>https://hnp.moscow/zemelnye-spory/sosedi/</link>
-    <description>Recent content in Споры о границах земельного участка с соседями – Юридическая помощь on Хромченков и партнеры - Земельные юристы Москвы</description>
+    <title>Споры с соседями о границах участка on Хромченков и партнеры - Юридические услуги в Москве</title>
+    <link>http://localhost:1313/zemelnye-spory/sosedi/</link>
+    <description>Recent content in Споры с соседями о границах участка on Хромченков и партнеры - Юридические услуги в Москве</description>
     <generator>Hugo</generator>
     <language>ru-ru</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://hnp.moscow/zemelnye-spory/sosedi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/zemelnye-spory/sosedi/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,5 +1,6 @@
 <header class="bg-white sticky top-0 z-50 border-b border-gray-200 flex items-center" style="height: 120px;">
   <div class="container mx-auto px-6 py-5">
+    {{ $path := .RelPermalink }}
     <div class="flex items-center justify-between">
       <div class="text-base md:text-2xl font-bold text-gray-800 flex items-center">
         <a href="/" class="flex items-center">
@@ -8,10 +9,11 @@
         </a>
       </div>
       <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-500 tracking-wider">
-        <a href="#services" class="hover:text-[#D84141] transition-colors">Услуги</a>
-        <a href="#team" class="hover:text-[#D84141] transition-colors">Команда</a>
-        <a href="#cases" class="hover:text-[#D84141] transition-colors">Кейсы</a>
-        <a href="#contacts" class="hover:text-[#D84141] transition-colors">Контакты</a>
+        <a href="/" class="{{ if .IsHome }}text-[#D84141]{{ else }}hover:text-[#D84141]{{ end }} transition-colors">Главная</a>
+        <a href="/#main-services" class="hover:text-[#D84141] transition-colors">Услуги</a>
+        <a href="/#practices" class="hover:text-[#D84141] transition-colors">Практики</a>
+        <a href="/pricing/" class="{{ if eq $path "/pricing/" }}text-[#D84141]{{ else }}hover:text-[#D84141]{{ end }} transition-colors">Цены</a>
+        <a href="/contacts/" class="{{ if eq $path "/contacts/" }}text-[#D84141]{{ else }}hover:text-[#D84141]{{ end }} transition-colors">Контакты</a>
       </nav>
       <div class="text-right">
         <a href="tel:{{ .Site.Data.site.contacts.phone }}" class="md:hidden hover:text-[#D84141] transition-colors">

@@ -2,7 +2,6 @@
 <!-- Hero Section -->
 <section
   class="relative bg-white text-gray-800 overflow-hidden"
-  style="min-height: calc(100vh - 120px);"
 >
   <!-- Background Image Container -->
   <div
@@ -11,8 +10,8 @@
   ></div>
 
   <!-- Foreground Content -->
-  <div class="relative container mx-auto px-6 flex flex-col justify-center h-full" style="min-height: calc(100vh - 120px);">
-    <div class="max-w-2xl pt-20 pb-10">
+  <div class="relative container mx-auto px-6 py-16 md:py-20">
+    <div class="max-w-2xl">
       <h1 class="text-3xl md:text-5xl font-bold text-[#D84141] leading-tight mb-4">
         {{ .Title }}
       </h1>
@@ -27,15 +26,17 @@
           ☎️ Бесплатная консультация
         </a>
         <a
-          href="#services"
+          href="#page-content"
           class="border-2 border-[#D84141] text-[#D84141] font-bold py-3 px-8 text-lg hover:bg-[#D84141] hover:text-white transition-all duration-300 inline-block rounded-lg"
         >
-          📋 Наши услуги
+          📋 Смотреть материалы
         </a>
       </div>
     </div>
   </div>
 </section>
+
+{{ partial "subpage-content.html" . }}
 
 {{ with .Params.features }}
 <!-- Features Section -->
@@ -225,6 +226,8 @@
 {{ end }}
 
 <!-- Related Services Section -->
+{{ $relatedPages := where .Site.RegularPages "Section" .Section }}
+{{ if gt (len $relatedPages) 1 }}
 <section id="services" class="py-16 bg-gray-50">
   <div class="container mx-auto px-6">
     <div class="text-center mb-12">
@@ -232,7 +235,7 @@
       <p class="text-xl text-gray-600">Полный спектр юридических услуг по данному направлению</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {{ range where .Site.RegularPages "Section" .Section }}
+      {{ range $relatedPages }}
       {{ if ne .Permalink $.Permalink }}
       <div class="bg-white border border-gray-200 p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:border-[#D84141]">
         <h3 class="text-xl font-semibold text-gray-900 mb-3">{{ .Title }}</h3>
@@ -249,5 +252,6 @@
     </div>
   </div>
 </section>
+{{ end }}
 
 {{ end }}

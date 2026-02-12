@@ -1,0 +1,64 @@
+{{ $html := .Content | default "" }}
+{{ $trimmed := strings.TrimSpace $html }}
+{{ if $trimmed }}
+  {{ $marked := replaceRE `(?s)<h2([^>]*)>` "@@H2@@<h2$1>" $trimmed }}
+  {{ $parts := split $marked "@@H2@@" }}
+  {{ $intro := "" }}
+  {{ $sections := slice }}
+  {{ range $idx, $part := $parts }}
+    {{ $piece := strings.TrimSpace $part }}
+    {{ if $piece }}
+      {{ if eq $idx 0 }}
+        {{ $intro = $piece }}
+      {{ else }}
+        {{ $sections = $sections | append $piece }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+<section id="page-content" class="subpage-shell py-14">
+  <div class="container mx-auto px-6">
+    <div class="subpage-grid">
+      <aside class="subpage-sidebar">
+        {{ if ne .TableOfContents "<nav id=\"TableOfContents\"></nav>" }}
+        <div class="subpage-card subpage-toc">
+          <h2>Навигация по разделу</h2>
+          {{ .TableOfContents }}
+        </div>
+        {{ end }}
+        <div class="subpage-card subpage-quick">
+          <h3>Быстрый вопрос</h3>
+          <p>Опишите задачу и отправьте документы на первичную правовую оценку.</p>
+          <a href="tel:+79262796350">Позвонить: +7 (926) 279-63-50</a>
+        </div>
+      </aside>
+
+      <div class="subpage-content-wrap">
+        {{ if and $intro (gt (len $sections) 0) }}
+        <article class="subpage-card subpage-intro">
+          <div class="prose prose-xl max-w-none prose-p:my-0">
+            {{ $intro | safeHTML }}
+          </div>
+        </article>
+        {{ end }}
+
+        {{ if gt (len $sections) 0 }}
+          {{ range $sections }}
+          <section class="subpage-card subpage-section">
+            <div class="prose prose-lg max-w-none">
+              {{ . | safeHTML }}
+            </div>
+          </section>
+          {{ end }}
+        {{ else }}
+          <article class="subpage-card subpage-section">
+            <div class="prose prose-lg max-w-none">
+              {{ .Content }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

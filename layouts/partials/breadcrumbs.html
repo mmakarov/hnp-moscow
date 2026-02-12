@@ -1,0 +1,28 @@
+<nav aria-label="Хлебные крошки" class="bg-gray-50 border-b border-gray-200">
+  <div class="container mx-auto px-6 py-3">
+    {{ $currentLabel := .Title }}
+    {{ if strings.Contains .Title "–" }}
+      {{ $currentLabel = strings.TrimSpace (index (split .Title "–") 0) }}
+    {{ end }}
+    <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+      <li>
+        <a href="/" class="hover:text-[#D84141] transition-colors">Главная</a>
+      </li>
+      {{ if and .Parent (not .Parent.IsHome) }}
+      {{ $parentLabel := .Parent.Title }}
+      {{ if strings.Contains .Parent.Title "–" }}
+        {{ $parentLabel = strings.TrimSpace (index (split .Parent.Title "–") 0) }}
+      {{ end }}
+      <li class="text-gray-400">/</li>
+      <li>
+        <a href="{{ .Parent.RelPermalink }}" class="hover:text-[#D84141] transition-colors">{{ $parentLabel }}</a>
+      </li>
+      <li class="text-gray-400">/</li>
+      <li class="text-gray-900 font-medium">{{ $currentLabel }}</li>
+      {{ else }}
+      <li class="text-gray-400">/</li>
+      <li class="text-gray-900 font-medium">{{ $currentLabel }}</li>
+      {{ end }}
+    </ol>
+  </div>
+</nav>
