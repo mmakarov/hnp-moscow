@@ -116,7 +116,7 @@ faq:
 
 ## Полезные материалы
 
-- [Земельные споры](/zemelnye-spory/)
-- [Споры по межеванию](/zemelnye-spory/mezhevanie/)
-- [Самовольный захват земли](/zemelnye-spory/zaxvat/)
-- [Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)
+[Земельные споры](/zemelnye-spory/)  
+[Споры по межеванию](/zemelnye-spory/mezhevanie/)  
+[Самовольный захват земли](/zemelnye-spory/zaxvat/)  
+[Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)

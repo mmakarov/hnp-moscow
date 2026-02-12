@@ -29,9 +29,10 @@
 
 @media (min-width: 1024px) {
   .subpage-grid {
-    grid-template-columns: 290px minmax(0, 1fr);
+    grid-template-columns: 290px minmax(0, 920px);
     gap: 2rem;
     align-items: start;
+    justify-content: center;
   }
 }
 
@@ -185,9 +186,53 @@
   margin-bottom: 1rem;
 }
 
+.subpage-intro .prose ul,
+.subpage-intro .prose ol,
+.subpage-section .prose ul,
+.subpage-section .prose ol {
+  padding-left: 1.35rem;
+}
+
+.subpage-intro .prose ul,
+.subpage-section .prose ul {
+  list-style: disc;
+}
+
+.subpage-intro .prose ol,
+.subpage-section .prose ol {
+  list-style: decimal;
+}
+
+.subpage-intro .prose ul ul,
+.subpage-section .prose ul ul {
+  list-style: circle;
+}
+
+.subpage-intro .prose ol ol,
+.subpage-section .prose ol ol {
+  list-style: lower-alpha;
+}
+
+.subpage-intro .prose li::marker,
+.subpage-section .prose li::marker {
+  color: #111827;
+  font-weight: 600;
+}
+
 .subpage-section .prose li {
   margin: 0.45rem 0;
   color: #374151;
+}
+
+.subpage-intro .prose li {
+  margin: 0.4rem 0;
+  color: #374151;
+}
+
+.subpage-intro .prose p {
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 0.95rem;
 }
 
 .subpage-section .prose hr {

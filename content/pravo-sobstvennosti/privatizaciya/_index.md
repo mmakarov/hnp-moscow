@@ -121,7 +121,7 @@ faq:
 
 ## Полезные материалы
 
-- [Право собственности на землю](/pravo-sobstvennosti/)
-- [Регистрация в Росреестре](/pravo-sobstvennosti/rosreestr/)
-- [Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)
-- [Земельные споры](/zemelnye-spory/)
+[Право собственности на землю](/pravo-sobstvennosti/)  
+[Регистрация в Росреестре](/pravo-sobstvennosti/rosreestr/)  
+[Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)  
+[Земельные споры](/zemelnye-spory/)

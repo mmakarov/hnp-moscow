@@ -65,7 +65,7 @@ layout: "pillar"
 
 ## Полезные материалы
 
-- [Земельные споры](/zemelnye-spory/)
-- [Право собственности на землю](/pravo-sobstvennosti/)
-- [Раздел земельного участка](/razdel-zemelnogo-uchastka/)
-- [Юридическая проверка недвижимости (LDS)](/land-checkup/)
+[Земельные споры](/zemelnye-spory/)  
+[Право собственности на землю](/pravo-sobstvennosti/)  
+[Раздел земельного участка](/razdel-zemelnogo-uchastka/)  
+[Юридическая проверка недвижимости (LDS)](/land-checkup/)

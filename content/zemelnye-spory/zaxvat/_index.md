@@ -115,7 +115,7 @@ faq:
 
 ## Полезные материалы
 
-- [Земельные споры](/zemelnye-spory/)
-- [Споры с соседями](/zemelnye-spory/sosedi/)
-- [Споры по межеванию](/zemelnye-spory/mezhevanie/)
-- [Право собственности на землю](/pravo-sobstvennosti/)
+[Земельные споры](/zemelnye-spory/)  
+[Споры с соседями](/zemelnye-spory/sosedi/)  
+[Споры по межеванию](/zemelnye-spory/mezhevanie/)  
+[Право собственности на землю](/pravo-sobstvennosti/)

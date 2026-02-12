@@ -139,8 +139,8 @@ faq:
 
 ## Полезные материалы
 
-- [Споры с соседями](/zemelnye-spory/sosedi/)
-- [Споры по межеванию](/zemelnye-spory/mezhevanie/)
-- [Самовольный захват земли](/zemelnye-spory/zaxvat/)
-- [Право собственности на землю](/pravo-sobstvennosti/)
-- [Раздел земельного участка](/razdel-zemelnogo-uchastka/)
+[Споры с соседями](/zemelnye-spory/sosedi/)  
+[Споры по межеванию](/zemelnye-spory/mezhevanie/)  
+[Самовольный захват земли](/zemelnye-spory/zaxvat/)  
+[Право собственности на землю](/pravo-sobstvennosti/)  
+[Раздел земельного участка](/razdel-zemelnogo-uchastka/)

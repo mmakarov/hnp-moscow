@@ -125,7 +125,7 @@ faq:
 
 ## Полезные материалы
 
-- [Право собственности на землю](/pravo-sobstvennosti/)
-- [Приватизация земельного участка](/pravo-sobstvennosti/privatizaciya/)
-- [Регистрация в Росреестре](/pravo-sobstvennosti/rosreestr/)
-- [Споры по межеванию](/zemelnye-spory/mezhevanie/)
+[Право собственности на землю](/pravo-sobstvennosti/)  
+[Приватизация земельного участка](/pravo-sobstvennosti/privatizaciya/)  
+[Регистрация в Росреестре](/pravo-sobstvennosti/rosreestr/)  
+[Споры по межеванию](/zemelnye-spory/mezhevanie/)

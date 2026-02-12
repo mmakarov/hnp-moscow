@@ -124,7 +124,7 @@ faq:
 
 ## Полезные материалы
 
-- [Право собственности на землю](/pravo-sobstvennosti/)
-- [Приватизация земельного участка](/pravo-sobstvennosti/privatizaciya/)
-- [Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)
-- [Земельные споры](/zemelnye-spory/)
+[Право собственности на землю](/pravo-sobstvennosti/)  
+[Приватизация земельного участка](/pravo-sobstvennosti/privatizaciya/)  
+[Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)  
+[Земельные споры](/zemelnye-spory/)

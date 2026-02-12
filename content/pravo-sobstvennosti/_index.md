@@ -148,8 +148,8 @@ faq:
 
 ## Полезные материалы
 
-- [Приватизация земельного участка](/pravo-sobstvennosti/privatizaciya/)
-- [Регистрация в Росреестре](/pravo-sobstvennosti/rosreestr/)
-- [Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)
-- [Земельные споры](/zemelnye-spory/)
-- [Услуги юриста по земельным вопросам](/yurist-po-zemelnym-voprosam/)
+[Приватизация земельного участка](/pravo-sobstvennosti/privatizaciya/)  
+[Регистрация в Росреестре](/pravo-sobstvennosti/rosreestr/)  
+[Кадастровые документы и межевание](/pravo-sobstvennosti/kadastrovyj-pasport/)  
+[Земельные споры](/zemelnye-spory/)  
+[Услуги юриста по земельным вопросам](/yurist-po-zemelnym-voprosam/)
