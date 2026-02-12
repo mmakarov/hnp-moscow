@@ -2,6 +2,7 @@ baseURL = 'https://hnp.moscow/'
 languageCode = 'ru-ru'
 title = 'Хромченков и партнеры - Юридические услуги в Москве'
 defaultContentLanguage = 'ru'
+enableRobotsTXT = true
 
 [params]
   description = "Юридические услуги для граждан и бизнеса в Москве. Земельные, жилищные, семейные и наследственные дела, судебное представительство и консалтинг."

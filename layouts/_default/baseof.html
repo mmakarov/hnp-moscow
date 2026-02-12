@@ -19,13 +19,12 @@
     <link rel="apple-touch-icon" type="image/png" href="/logo-small.png">
     
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&subset=latin,cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/fonts/roboto.css">
     
     <!-- Styles -->
     {{ $css := resources.Get "css/custom.css" }}
     <link rel="stylesheet" href="{{ $css.Permalink }}">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/vendor/tailwind/tailwindcss.js"></script>
 
     {{ $ratingValue := "4.5" }}
     {{ with site.Data.reviews.summary.rating }}

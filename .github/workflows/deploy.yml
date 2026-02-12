@@ -34,6 +34,11 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Validate local web dependencies
+        run: |
+          test -f static/vendor/tailwind/tailwindcss.js
+          test -f static/vendor/fonts/roboto.css
+
       - name: Build with Hugo
         run: |
           hugo --minify
